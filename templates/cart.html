@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<h1>Your Cart</h1>
+<div id="cart-container" class="cart-container"></div>
+<p class="total" id="cart-total">Total: ₹0</p>
+
+{% if not noCheckout %}
+<button class="checkout-btn" onclick="window.location.href='/checkout'">Proceed to Checkout</button>
+{% endif %}
+
+<script>
+  // 🛒 Get cart from sessionStorage
+  const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+  const container = document.getElementById('cart-container');
+  const totalEl = document.getElementById('cart-total');
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Your cart is empty 🛍️</p>";
+    totalEl.style.display = "none";
+  } else {
+    let total = 0;
+    cart.forEach(item => {
+      total += item.price;
+      container.innerHTML += `
+        <div class="cart-item">
+          <img src="/static/${item.image}" alt="${item.title}">
+          <div class="details">
+            <h3>${item.title}</h3>
+            <p>₹${item.price}</p>
+          </div>
+        </div>
+      `;
+    });
+    totalEl.innerText = `Total: ₹${total}`;
+  }
+</script>
+{% endblock %}

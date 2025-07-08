@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Books{% endblock %}
+{% block content %}
+<h1>Shop Books</h1>
+<div class="book-grid">
+
+  <div class="book-card">
+    <img src="{{ url_for('static', filename='images/book1.jpg') }}" alt="Book 1">
+    <h3>Atomic Habits</h3>
+    <p class="price">₹299</p>
+    <button onclick="addToCart('Atomic Habits', 299, 'images/book1.jpg')">Add to Cart</button>
+  </div>
+
+  <div class="book-card">
+    <img src="{{ url_for('static', filename='images/book2.jpg') }}" alt="Book 2">
+    <h3>The Alchemist</h3>
+    <p class="price">₹350</p>
+    <button onclick="addToCart('The Alchemist', 350, 'images/book2.jpg')">Add to Cart</button>
+  </div>
+
+  <div class="book-card">
+    <img src="{{ url_for('static', filename='images/book3.jpg') }}" alt="Book 3">
+    <h3>Family Upstairs</h3>
+    <p class="price">₹420</p>
+    <button onclick="addToCart('Family Upstairs', 420, 'images/book3.jpg')">Add to Cart</button>
+  </div>
+
+  <div class="book-card">
+    <img src="{{ url_for('static', filename='images/book4.jpg') }}" alt="Book 4">
+    <h3>Verity</h3>
+    <p class="price">₹420</p>
+    <button onclick="addToCart('Verity', 420, 'images/book4.jpg')">Add to Cart</button>
+  </div>
+
+  <div class="book-card">
+    <img src="{{ url_for('static', filename='images/book5.jpg') }}" alt="Book 5">
+    <h3>The Vegetarian</h3>
+    <p class="price">₹420</p>
+    <button onclick="addToCart('The Vegetarian', 420, 'images/book5.jpg')">Add to Cart</button>
+  </div>
+
+</div>
+{% endblock %}
